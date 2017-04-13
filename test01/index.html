@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vue_test01</title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<style type="text/css">
+			div{margin: 20px 0;padding: 10px 0;background: #f5f5f5;}
+		</style>
+	</head>
+	<body>
+		<div id="app" >
+			{{message}}
+		</div>
+		<div id="app_2" v-bind:style="{border:'1px solid '+message,color:message}">
+			{{message}}
+		</div>
+		<div id="app_3">
+			<input type="button" name="" id="" v-on:click="show=!show" value="显／隐" />
+			<span v-if="show">点击"显／隐"显示或隐藏我！</span>
+		</div>
+		<div id="app_4">
+			<ul>
+				<li v-for="item in listCon"><span>{{item.name}}</span>,<span>{{item.age}}</span>,<span>{{item.sex}}</span></li>
+			</ul>
+		</div>
+		<div id="app_5">
+			<button v-on:click="fun">点击输出右侧内容</button>
+			<span>{{btn}}</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:"这是文本！"
+			}
+		})
+		var app2 = new Vue({
+			el:'#app_2',
+			data:{
+				message:"red"
+			}
+		})
+		var app3 = new Vue({
+			el:"#app_3",
+			data:{
+				show:true
+			}
+		})
+		var app4 = new Vue({
+			el:"#app_4",
+			data:{
+				listCon:[
+					{name:"张三",age:"18",sex:"boy"},
+					{name:"李四",age:"21",sex:"girl"},
+					{name:"王五",age:"15",sex:"girl"},
+					{name:"赵六",age:"32",sex:"boy"}
+				]
+			}
+		})
+		var app5 = new Vue({
+			el:'#app_5',
+			data:{
+				btn:"我是一个按钮"
+			},
+			methods:{
+				fun:function(){
+					alert(this.btn)
+				}
+			}
+		})
+	</script>
+</html>
