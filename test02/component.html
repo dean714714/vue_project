@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件化学习</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+      <div id="app">
+          <todo-item></todo-item>
+      </div>
+</body>
+ <script type="text/javascript">
+    var app = new Vue({
+        el:"#app"
+    })
+    //常规前端写一个复用的组件，比方说一个按钮，都是结构，样式和脚本分离的，这样的组件复用是很麻烦的，因为要同时引用三个文件
+    //理想中，我们希望的组件是一个独立的模版，不管定义多么复杂，但我们使用的时候应当是及其简单的，简单一个标签就可以出效果，于是就有了当下前端框架都流行的组件化
+    Vue.component("todo-item",{//通过执行Vue构造函数（对象）的component函数，注册一个组件(vue实例)
+        template:'<div style="padding:10px;background:#fafafa;border:1px solid #d6d6d6;text-align:center;">我是一个组件了其实</div>'
+    })
+</script>
+</html>

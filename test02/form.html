@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test02</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" value="" v-model="info"/>
+        <span>{{info}}</span>
+    </div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el:"#app",
+        data:{
+            info:"现在是默认信息！"
+        }
+    })
+</script>
+</html>
