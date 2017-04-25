@@ -1,5 +1,5 @@
 <template>
-    <button class="cp-btn" v-on:click="btnClickEvent">
+    <button :class='[commonClass]' v-on:click="btnClickEvent">
         <slot name='icon'></slot><!--放置一个插槽-->
         <span>{{msg}}</span>
     </button>
@@ -7,13 +7,16 @@
 <script>
     export default {
       props: {
+        commonClass: {
+          default: 'cp-btn'
+        },
         msg: {
           default: '下载'
         }
       },
       methods: {
         btnClickEvent: function () {
-          alert('I am a btn')
+          alert('我是个按钮，这个事件注册在按钮组件里')
           this.$emit('btnClickEvent')
         }
       }
